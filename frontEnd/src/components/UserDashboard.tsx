@@ -1,37 +1,34 @@
-import {  useEffect, useState } from "react";
-import type { UserType } from "../types/UserType"
-import UserFormComponent from "./UserFormComponent"
-import UserListComponent from "./UserListComponent"
-
-
+import { useEffect, useState } from "react";
+import type { UserType } from "../types/UserType";
+import UserFormComponent from "./UserFormComponent";
+import UserListComponent from "./UserListComponent";
 
 const UserDashboard = () => {
-    const [users, setUsers] = useState<UserType[]>([]);
-    
-    useEffect(() => {
+  const [users, setUsers] = useState<UserType[]>([]);
+
+  useEffect(() => {
     const fetchUsers = async () => {
-        try {
-          const response = await fetch("data.json");
-            const data = await response.json();
-            setUsers(data);
-        } catch (error) {
-            console.error("Error fetching users:", error);
-        }
-    }
+      try {
+        const response = await fetch("data.json");
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
     fetchUsers();
-    }, []);
+  }, []);
 
-    const handelUser = (newUser: UserType) => {
-        setUsers((prevUsers) => [...prevUsers, newUser]);
-    }
-
+  const handelUser = (newUser: UserType) => {
+    setUsers((prevUsers) => [newUser,...prevUsers]);
+  };
 
   return (
     <div>
-        <UserFormComponent onAddUser = {handelUser}/>
-        <UserListComponent usersList={users} />
+      <UserFormComponent onAddUser={handelUser} />
+      <UserListComponent usersList={users} />
     </div>
-  )
-}
+  );
+};
 
-export default UserDashboard
+export default UserDashboard;

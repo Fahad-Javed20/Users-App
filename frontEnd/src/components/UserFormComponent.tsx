@@ -9,11 +9,13 @@ const UserFormComponent = ({ onAddUser }: UserFormComponentProps) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<UserType>();
 
   const onSubmit = (data: UserType) => {
     onAddUser(data);
+    reset();
   };
 
   return (
@@ -25,7 +27,7 @@ const UserFormComponent = ({ onAddUser }: UserFormComponentProps) => {
       <div className="flex justify-center bg-gray-100 p-6 rounded-lg shadow-md">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 space-y-5 "
+          className="w-full max-w-1/2 bg-white shadow-lg rounded-xl p-6 space-y-5 "
         >
           <div>
             <label className="block font-medium mb-1 text-left">Name</label>
