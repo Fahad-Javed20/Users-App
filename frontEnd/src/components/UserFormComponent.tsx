@@ -57,10 +57,18 @@ const UserFormComponent = ({ onAddUser }: UserFormComponentProps) => {
 
           <div>
             <label className="block font-medium mb-1 text-left">City</label>
-            <input
+            <select
               {...register("city", { required: true })}
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
+            >
+            <option value="">Select City</option>
+            <option value="New York">New York</option>
+            <option value="Los Angeles">Lahore</option>
+            <option value="Chicago">Karachi</option>
+            <option value="Houston">Houston</option>
+            <option value="Phoenix">Phoenix</option>
+          </select>
+            
             {errors.city && (
               <span className="text-red-500 text-sm">
                 This field is required
