@@ -80,7 +80,6 @@ const users = [
   },
 ];
 
-
 app.get("/users", (req, res) => {
   res.json(users);
 });
