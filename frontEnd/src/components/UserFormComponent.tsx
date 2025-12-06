@@ -1,7 +1,11 @@
+interface UserFormComponentProps {
+  onAddUser: (newUser: UserType) => void;
+}
+
 import { useForm } from "react-hook-form";
 import type { UserType } from "../types/UserType";
 
-const UserFormComponent = () => {
+const UserFormComponent = ({ onAddUser }: UserFormComponentProps) => {
   const {
     register,
     handleSubmit,
@@ -9,7 +13,7 @@ const UserFormComponent = () => {
   } = useForm<UserType>();
 
   const onSubmit = (data: UserType) => {
-    console.log(data);
+    onAddUser(data);
   };
 
   return (

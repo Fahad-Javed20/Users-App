@@ -21,10 +21,14 @@ const UserDashboard = () => {
     fetchUsers();
     }, []);
 
+    const handelUser = (newUser: UserType) => {
+        setUsers((prevUsers) => [...prevUsers, newUser]);
+    }
+
 
   return (
     <div>
-        <UserFormComponent/>
+        <UserFormComponent onAddUser = {handelUser}/>
         <UserListComponent usersList={users} />
     </div>
   )
