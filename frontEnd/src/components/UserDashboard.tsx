@@ -1,12 +1,31 @@
+import {  useEffect, useState } from "react";
+import type { UserType } from "../types/UserType"
 import UserFormComponent from "./UserFormComponent"
 import UserListComponent from "./UserListComponent"
 
 
+
 const UserDashboard = () => {
+    const [users, setUsers] = useState<UserType[]>([]);
+    
+    useEffect(() => {
+    const fetchUsers = async () => {
+        try {
+          const response = await fetch("data.json");
+            const data = await response.json();
+            setUsers(data);
+        } catch (error) {
+            console.error("Error fetching users:", error);
+        }
+    }
+    fetchUsers();
+    }, []);
+
+
   return (
     <div>
         <UserFormComponent/>
-        <UserListComponent/>
+        <UserListComponent usersList={users} />
     </div>
   )
 }

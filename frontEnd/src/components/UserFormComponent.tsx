@@ -2,11 +2,15 @@ import { useForm } from "react-hook-form";
 import type { UserType } from "../types/UserType";
 
 const UserFormComponent = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<UserType>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserType>();
 
   const onSubmit = (data: UserType) => {
     console.log(data);
-  }
+  };
 
   return (
     <div className="p-6">
@@ -15,8 +19,8 @@ const UserFormComponent = () => {
       </h1>
 
       <div className="flex justify-center bg-gray-100 p-6 rounded-lg shadow-md">
-        <form onSubmit={handleSubmit(onSubmit)}
-
+        <form
+          onSubmit={handleSubmit(onSubmit)}
           className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 space-y-5 "
         >
           <div>
@@ -26,7 +30,9 @@ const UserFormComponent = () => {
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
             {errors.name && (
-              <span className="text-red-500 text-sm">This field is required</span>
+              <span className="text-red-500 text-sm">
+                This field is required
+              </span>
             )}
           </div>
 
@@ -37,7 +43,9 @@ const UserFormComponent = () => {
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
             {errors.email && (
-              <span className="text-red-500 text-sm">This field is required</span>
+              <span className="text-red-500 text-sm">
+                This field is required
+              </span>
             )}
           </div>
 
@@ -48,7 +56,9 @@ const UserFormComponent = () => {
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
             {errors.city && (
-              <span className="text-red-500 text-sm">This field is required</span>
+              <span className="text-red-500 text-sm">
+                This field is required
+              </span>
             )}
           </div>
 
@@ -59,12 +69,14 @@ const UserFormComponent = () => {
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
             {errors.salary && (
-              <span className="text-red-500 text-sm">This field is required</span>
+              <span className="text-red-500 text-sm">
+                This field is required
+              </span>
             )}
           </div>
 
           <div className="text-center">
-            <button 
+            <button
               type="submit"
               className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-all"
             >
