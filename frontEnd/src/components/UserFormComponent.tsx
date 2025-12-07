@@ -21,7 +21,7 @@ const UserFormComponent = ({ onAddUser }: UserFormComponentProps) => {
   return (
     <div className="p-6">
       <h1 className="font-bold bg-gray-700 text-white text-xl py-3 mb-6 rounded text-center">
-        User Form
+        User Entry Form
       </h1>
 
       <div className="flex justify-center bg-gray-100 p-6 rounded-lg shadow-md">
